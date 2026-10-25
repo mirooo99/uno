@@ -60,7 +60,7 @@ const mkDeck=()=>{const d=[];for(const c of 'rygb'){d.push(c+'0');for(let i=1;i<
 const shuf=a=>{for(let i=a.length;i>1;){const j=Math.random()*i--|0;[a[i],a[j]]=[a[j],a[i]]}return a};
 const card=(c,x='')=>{const f=c[1]=='W'?'':face(c);return `<div class="card ${c[0]=='k'?'wild':''} ${x}" data-c="${c}" style="--c:${C[c[0]]}"><span class=tl>${f}</span><div class=ov><span class=mid>${f}</span></div><span class=br>${f}</span></div>`};
 const back=x=>`<div class="card back ${x||''}"><div class=ov><span class=mid>UNO</span></div></div>`;
-const DB='PASTE_YOUR_FIREBASE_DATABASE_URL_HERE';let me=ls('uid'),S,code,pend=null,lastN=0;if(!me){me=Math.random().toString(36).slice(2,10);ls('uid',me)}
+const DB='https://mirogames-default-rtdb.europe-west1.firebasedatabase.app/';let me=ls('uid'),S,code,pend=null,lastN=0;if(!me){me=Math.random().toString(36).slice(2,10);ls('uid',me)}
 const err=m=>$('#err').textContent=m||'';
 const nx=(s,k=1)=>((s.cur+s.dir*k)%s.players.length+s.players.length)%s.players.length;
 const ok=(s,c,h)=>{const t=s.discard[s.discard.length-1];if(c[0]=='k')return c[1]!='F'||!h.some(x=>x[0]==s.color);return c[0]==s.color||c[1]==t[1]};
